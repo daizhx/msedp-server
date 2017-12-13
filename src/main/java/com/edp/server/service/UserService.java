@@ -1,5 +1,8 @@
 package com.edp.server.service;
 
+import com.edp.server.Repository.UserRepository;
+import com.edp.server.Repository.data.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -8,4 +11,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
+    @Autowired
+    private UserRepository userRepository;
+
+    //用户注册
+    public User signUp(User u){
+        return userRepository.save(u);
+    }
 }

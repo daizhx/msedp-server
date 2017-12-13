@@ -1,4 +1,4 @@
-package com.edp.server.data;
+package com.edp.server.Repository.data;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -27,6 +27,15 @@ public class User {
     private String visitingHospital;//就诊医院
     private boolean isSmoking;//是否吸烟
     private int smokingYear;//烟龄
+    private String remark;
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
     @Id
     @GeneratedValue(generator="increment")
@@ -117,5 +126,24 @@ public class User {
 
     public void setSmokingYear(int smokingYear) {
         this.smokingYear = smokingYear;
+    }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", tel=" + tel +
+                ", birthdate=" + birthdate +
+                ", gender=" + gender +
+                ", idCardNumbers='" + idCardNumbers + '\'' +
+                ", weChatName='" + weChatName + '\'' +
+                ", homeAddr='" + homeAddr + '\'' +
+                ", medicareNumbers='" + medicareNumbers + '\'' +
+                ", visitingHospital='" + visitingHospital + '\'' +
+                ", isSmoking=" + isSmoking +
+                ", smokingYear=" + smokingYear +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }
