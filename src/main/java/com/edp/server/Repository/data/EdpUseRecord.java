@@ -2,6 +2,7 @@ package com.edp.server.Repository.data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 @Entity
@@ -21,6 +22,7 @@ public class EdpUseRecord {
 
     private Date startTime;
 
+    @ManyToOne
     private User user;
 
 
