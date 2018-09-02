@@ -31,6 +31,9 @@ public class User {
     private int smokingYear;//烟龄
     private String remark;
 
+    private String accout;//账号
+    private String pwd;//密码
+
     public String getRemark() {
         return remark;
     }
@@ -136,6 +139,22 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getAccout() {
+        return accout;
+    }
+
+    public void setAccout(String accout) {
+        this.accout = accout;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
     }
 
     @Override

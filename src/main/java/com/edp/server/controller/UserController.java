@@ -22,4 +22,10 @@ public class UserController {
         }
         return 0;
     }
+
+    @GetMapping("/user/sign_in")
+    public int login(String account,String pwd){
+        //TODO
+        return 0;
+    }
 }
