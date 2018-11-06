@@ -8,7 +8,5 @@ import org.springframework.data.repository.Repository;
  * Created by Administrator on 2017/11/11 0011.
  */
 public interface UserRepository extends CrudRepository<User,Long>{
-
-    //新建一个用户
-    User save(User user);
+    
 }

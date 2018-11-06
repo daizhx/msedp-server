@@ -24,6 +24,5 @@ public class UserServiceTest {
         user.setTel(18664701713L);
         user.setWeChatName("test");
         User ret = userService.signUp(user);
-        System.out.println("----------"+ret.toString());
     }
 }
