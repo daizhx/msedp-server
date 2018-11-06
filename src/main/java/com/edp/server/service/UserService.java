@@ -18,4 +18,10 @@ public class UserService {
     public User signUp(User u){
         return userRepository.save(u);
     }
+
+    //用户登录
+    public int signIn(String account,String pwd){
+        //TODO
+        return 0;
+    }
 }

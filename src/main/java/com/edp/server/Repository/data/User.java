@@ -9,14 +9,16 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- *
+ * edp用户
  * Created by daizhx on 2017/9/26.
  */
 @Entity
 @Table(name="user")
 public class User {
 
+    @Id
     private Long id;
+    private String name;
     private Long tel;
     private Date birthdate;
     private byte gender;//0-女，1-男
@@ -28,6 +30,9 @@ public class User {
     private boolean isSmoking;//是否吸烟
     private int smokingYear;//烟龄
     private String remark;
+
+    private String accout;//账号
+    private String pwd;//密码
 
     public String getRemark() {
         return remark;
@@ -128,11 +133,35 @@ public class User {
         this.smokingYear = smokingYear;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAccout() {
+        return accout;
+    }
+
+    public void setAccout(String accout) {
+        this.accout = accout;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 
     @Override
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
                 ", tel=" + tel +
                 ", birthdate=" + birthdate +
                 ", gender=" + gender +
