@@ -23,6 +23,6 @@ public class UserServiceTest {
         User user = new User();
         user.setTel(18664701713L);
         user.setWeChatName("test");
-        User ret = userService.signUp(user);
+        userService.signUp(user);
     }
 }
