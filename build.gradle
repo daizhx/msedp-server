@@ -37,4 +37,5 @@ dependencies {
     compile("com.google.guava:guava:22.0")
     compile 'com.google.code.gson:gson:2.8.2'
     compile('org.springframework:spring-jdbc')
+    compile('mysql:mysql-connector-java:8.0.13')
 }
