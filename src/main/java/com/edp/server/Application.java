@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 /**
  * Created by daizhx on 2017/9/26.
  */
+//开启组件扫描和自动配置，等同于@Configuration,@ComponentScan,@EnableAutoConfiguration3个注解
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 

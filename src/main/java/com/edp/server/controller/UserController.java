@@ -15,17 +15,17 @@ public class UserController {
     UserService userService;
 
     @PostMapping("/user/sign_up")
-    public int saveUser(@RequestBody User user){
-        User ret = userService.signUp(user);
-        if(ret.getId() != null){
-            return 1;
-        }
-        return 0;
+    public User saveUser(@RequestBody User user){
+        return userService.signUp(user);
     }
 
     @GetMapping("/user/sign_in")
-    public int login(String account,String pwd){
-        //TODO
-        return 0;
+    public boolean login(String account,String pwd){
+        User u = userService.signIn(account,pwd);
+        if(u != null){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
