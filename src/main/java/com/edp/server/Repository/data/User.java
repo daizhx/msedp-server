@@ -18,7 +18,7 @@ public class User {
 
     @Id
     private Long id;
-    private String name;
+    private String userName;
     private Long tel;
     private Date birthdate;
     private byte gender;//0-女，1-男
@@ -133,12 +133,12 @@ public class User {
         this.smokingYear = smokingYear;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getAccount() {
@@ -161,7 +161,7 @@ public class User {
     public String toString() {
         return "User{" +
                 "id=" + id +
-                ", name='" + name + '\'' +
+                ", userName='" + userName + '\'' +
                 ", tel=" + tel +
                 ", birthdate=" + birthdate +
                 ", gender=" + gender +
