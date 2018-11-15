@@ -19,13 +19,15 @@ public class UserController {
         return userService.signUp(user);
     }
 
+    //TODO 简单接口
     @GetMapping("/user/sign_in")
-    public boolean login(String account,String pwd){
-        User u = userService.signIn(account,pwd);
+    public boolean login(String userName,String pwd){
+        User u = userService.signIn(userName,pwd);
         if(u != null){
             return true;
         }else {
             return false;
         }
     }
+
 }

@@ -5,10 +5,13 @@ USE edp;
 -- 用户表
 CREATE TABLE IF NOT EXISTS edp_user(
 	id int NOT NULL AUTO_INCREMENT COMMENT '自增主键',
-	tel BIGINT NOT NULL COMMENT '手机号',
+	user_name VARCHAR(20) NOT NULL COMMENT '用户名'
+	tel VARCHAR(20) DEFAULT NULL COMMENT '手机号',
 	gender TINYINT DEFAULT NULL COMMENT '性别：0-女,1-男',
 	birthday DATETIME DEFAULT NULL,
 	citizen_id varchar(30) DEFAULT NULL COMMENT '身份证号码',
+	nick_name VARCHAR(20) DEFAULT NULL COMMENT '昵称',
+	email VARCHAR(30) DEFAULT NULL COMMENT '邮箱',
 	PRIMARY KEY (id)
 );
 

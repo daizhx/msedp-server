@@ -20,7 +20,7 @@ public class UserService {
     }
 
     //用户登录
-    public User signIn(String account,String pwd){
-        return userRepository.findByAccountAndPwd(account,pwd);
+    public User signIn(String userName,String pwd){
+        return userRepository.findByUserNameAndPwd(userName,pwd);
     }
 }
