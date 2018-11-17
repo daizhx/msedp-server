@@ -81,4 +81,18 @@ public class EdpUseRecord {
     public void setUser(User user) {
         this.user = user;
     }
+
+
+    @Override
+    public String toString() {
+        return "EdpUseRecord{" +
+                "id=" + id +
+                ", tpm=" + tpm +
+                ", treatTime=" + treatTime +
+                ", frequency=" + frequency +
+                ", strength=" + strength +
+                ", startTime=" + startTime +
+                ", user=" + user +
+                '}';
+    }
 }

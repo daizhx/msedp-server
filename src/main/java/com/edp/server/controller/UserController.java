@@ -1,5 +1,6 @@
 package com.edp.server.controller;
 
+import com.edp.server.Repository.data.EdpUseRecord;
 import com.edp.server.Repository.data.User;
 import com.edp.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,13 @@ public class UserController {
         }else {
             return false;
         }
+    }
+
+    //TODO 用户使用EDP记录
+    @PostMapping("/user/use_record")
+    public boolean RecordEdpUsing(EdpUseRecord record){
+        System.out.println("record--->"+record);
+        return false;
     }
 
 }
