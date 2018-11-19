@@ -11,20 +11,26 @@ public class EdpUseRecord {
     @Id
     private long id;
 
-    //times per minutes
+    //起搏次数
     private int tpm;
 
+    //治疗时间
     private int treatTime;
 
+    //脉冲频率
     private int frequency;
 
+    //强度
     private int strength;
 
+    //开始时间
     private Date startTime;
 
     @ManyToOne
     private User user;
 
+    //设备ID
+    private String devId;
 
     public long getId() {
         return id;
@@ -80,6 +86,14 @@ public class EdpUseRecord {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public String getDevId() {
+        return devId;
+    }
+
+    public void setDevId(String devId) {
+        this.devId = devId;
     }
 
 
