@@ -34,8 +34,8 @@ public class UserController {
     //TODO 用户使用EDP记录
     @PostMapping("/user/use_record")
     public boolean RecordEdpUsing(EdpUseRecord record){
-        System.out.println("record--->"+record);
-        return false;
+        userService.recordEdpUse(record);
+        return true;
     }
 
 }
