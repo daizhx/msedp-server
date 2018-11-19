@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS edp_use_record(
 	strength TINYINT NOT NULL COMMENT '强度',
 	start_time DATETIME NOT NULL COMMENT '每次启动治疗时间',
 	user_id int NOT NULL COMMENT '用户id',
+	dev_uuid varchar(64) NOT NULL COMMENT '设备id'
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_id) REFERENCES edp_user (id)
 )
