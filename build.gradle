@@ -42,4 +42,8 @@ dependencies {
     //添加热部署功能
     compile("org.springframework:springloaded")
     compile("org.springframework.boot:spring-boot-devtools")
+
+    //添加swagger2依赖
+    compile("io.springfox:springfox-swagger2:2.2.2")
+    compile("io.springfox:springfox-swagger-ui:2.2.2")
 }

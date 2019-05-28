@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.*;
  * Created by daizhx on 2017/9/27.
  */
 @RestController
-@RequestMapping("/edp/api")
+@RequestMapping("/edp/api/users")
 public class UserController {
 
     @Autowired
     UserService userService;
 
-    @PostMapping("/users")
+    @PostMapping()
     public User saveUser(@RequestBody User user){
         return userService.signUp(user);
     }
