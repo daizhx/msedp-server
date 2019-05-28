@@ -38,4 +38,8 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.2'
     compile('org.springframework:spring-jdbc')
     compile('mysql:mysql-connector-java:5.1.47')
+
+    //添加热部署功能
+    compile("org.springframework:springloaded")
+    compile("org.springframework.boot:spring-boot-devtools")
 }
