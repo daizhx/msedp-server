@@ -18,13 +18,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 @SpringBootApplication
 public class Application implements CommandLineRunner {
 
-    private static final Logger log = LoggerFactory.getLogger(Application.class);
-
     @Autowired
     UserRepository userRepository;
 
     public static void main(String[] args) {
-        System.out.println(System.getProperty("java.class.path"));//系统的classpaht路径
         SpringApplication.run(Application.class, args);
     }
 

@@ -1,74 +1,88 @@
 package com.edp.server.Repository.data;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 @Entity
 public class EdpUseRecord {
 
+
+    /**
+     * 自增主键
+     */
     @Id
-    private long id;
-
-    //起搏次数
-    private int tpm;
-
-    //治疗时间
-    private int treatTime;
-
-    //脉冲频率
-    private int frequency;
-
-    //强度
-    private int strength;
-
-    //开始时间
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    /**
+     * 频率
+     */
+    private Integer freq;
+    /**
+     * 时间
+     */
+    private Integer duration;
+    /**
+     * 起搏次数
+     */
+    private Integer timesPerMin;
+    /**
+     * 强度
+     */
+    private Integer strength;
+    /**
+     * 每次启动治疗时间
+     */
     private Date startTime;
+    /**
+     * 用户id
+     */
+    @Column(name = "user_id")
+    private Integer userId;
+    /**
+     * 设备id
+     */
+    @Column(name = "dev_uuid")
+    private String devUuid;
 
-    @ManyToOne
-    private User user;
 
-    //设备ID
-    private String devId;
-
-    public long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getTpm() {
-        return tpm;
+    public Integer getFreq() {
+        return freq;
     }
 
-    public void setTpm(int tpm) {
-        this.tpm = tpm;
+    public void setFreq(Integer freq) {
+        this.freq = freq;
     }
 
-    public int getTreatTime() {
-        return treatTime;
+    public Integer getDuration() {
+        return duration;
     }
 
-    public void setTreatTime(int treatTime) {
-        this.treatTime = treatTime;
+    public void setDuration(Integer duration) {
+        this.duration = duration;
     }
 
-    public int getFrequency() {
-        return frequency;
+    public Integer getTimesPerMin() {
+        return timesPerMin;
     }
 
-    public void setFrequency(int frequency) {
-        this.frequency = frequency;
+    public void setTimesPerMin(Integer timesPerMin) {
+        this.timesPerMin = timesPerMin;
     }
 
-    public int getStrength() {
+    public Integer getStrength() {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(Integer strength) {
         this.strength = strength;
     }
 
@@ -80,20 +94,20 @@ public class EdpUseRecord {
         this.startTime = startTime;
     }
 
-    public User getUser() {
-        return user;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
-    public String getDevId() {
-        return devId;
+    public String getDevUuid() {
+        return devUuid;
     }
 
-    public void setDevId(String devId) {
-        this.devId = devId;
+    public void setDevUuid(String devUuid) {
+        this.devUuid = devUuid;
     }
 
 
@@ -101,12 +115,13 @@ public class EdpUseRecord {
     public String toString() {
         return "EdpUseRecord{" +
                 "id=" + id +
-                ", tpm=" + tpm +
-                ", treatTime=" + treatTime +
-                ", frequency=" + frequency +
+                ", freq=" + freq +
+                ", duration=" + duration +
+                ", timesPerMin=" + timesPerMin +
                 ", strength=" + strength +
                 ", startTime=" + startTime +
-                ", user=" + user +
-                '}';
+                ", userId=" + userId +
+                ", devUuid=" + devUuid +
+                "}";
     }
 }
