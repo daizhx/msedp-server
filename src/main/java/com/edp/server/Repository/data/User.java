@@ -2,10 +2,7 @@ package com.edp.server.Repository.data;
 
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -13,34 +10,32 @@ import java.util.Date;
  * Created by daizhx on 2017/9/26.
  */
 @Entity
-@Table(name="user")
+@Table(name="edp_user")
 public class User {
 
     @Id
     private Long id;
+    //用户名
     private String userName;
-    private Long tel;
-    private Date birthdate;
-    private byte gender;//0-女，1-男
-    private String idCardNumbers;
-    private String weChatName;
-    private String homeAddr;
-    private String medicareNumbers;
-    private String visitingHospital;//就诊医院
-    private boolean isSmoking;//是否吸烟
-    private int smokingYear;//烟龄
-    private String remark;
-
-    private String account;//账号
     private String pwd;//密码
+    //手机号
+    private Long tel;
+    private Date birthday;
+    private byte gender;//0-女，1-男
 
-    public String getRemark() {
-        return remark;
-    }
+    @Column(name="idcardnumbers")
+    private String idcardnumbers;
+    @Column(name="wechatname")
+    private String wechatname;
+    private String homeAddr;
+    @Column(name="medicareNumbers")
+    private String medicarenumbers;
+    @Column(name="visitingHospital")
+    private String visitinghospital;//就诊医院
+    @Column(name="issmoking")
+    private boolean issmoking;//是否吸烟
+    private int smokingYear;//烟龄
 
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
 
     @Id
     @GeneratedValue(generator="increment")
@@ -61,12 +56,12 @@ public class User {
         this.tel = tel;
     }
 
-    public Date getBirthdate() {
-        return birthdate;
+    public Date getBirthday() {
+        return birthday;
     }
 
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 
     public byte getGender() {
@@ -77,20 +72,21 @@ public class User {
         this.gender = gender;
     }
 
-    public String getIdCardNumbers() {
-        return idCardNumbers;
+    public String getIdcardnumbers() {
+        return idcardnumbers;
     }
 
-    public void setIdCardNumbers(String idCardNumbers) {
-        this.idCardNumbers = idCardNumbers;
+    @Column(name = "idcardnumbers")
+    public void setIdcardnumbers(String idcardnumbers) {
+        this.idcardnumbers = idcardnumbers;
     }
 
-    public String getWeChatName() {
-        return weChatName;
+    public String getWechatname() {
+        return wechatname;
     }
 
-    public void setWeChatName(String weChatName) {
-        this.weChatName = weChatName;
+    public void setWechatname(String wechatname) {
+        this.wechatname = wechatname;
     }
 
     public String getHomeAddr() {
@@ -101,28 +97,28 @@ public class User {
         this.homeAddr = homeAddr;
     }
 
-    public String getMedicareNumbers() {
-        return medicareNumbers;
+    public String getMedicarenumbers() {
+        return medicarenumbers;
     }
 
-    public void setMedicareNumbers(String medicareNumbers) {
-        this.medicareNumbers = medicareNumbers;
+    public void setMedicarenumbers(String medicarenumbers) {
+        this.medicarenumbers = medicarenumbers;
     }
 
-    public String getVisitingHospital() {
-        return visitingHospital;
+    public String getVisitinghospital() {
+        return visitinghospital;
     }
 
-    public void setVisitingHospital(String visitingHospital) {
-        this.visitingHospital = visitingHospital;
+    public void setVisitinghospital(String visitinghospital) {
+        this.visitinghospital = visitinghospital;
     }
 
-    public boolean isSmoking() {
-        return isSmoking;
+    public boolean isIssmoking() {
+        return issmoking;
     }
 
-    public void setSmoking(boolean smoking) {
-        isSmoking = smoking;
+    public void setIssmoking(boolean issmoking) {
+        this.issmoking = issmoking;
     }
 
     public int getSmokingYear() {
@@ -141,13 +137,6 @@ public class User {
         this.userName = userName;
     }
 
-    public String getAccount() {
-        return account;
-    }
-
-    public void setAccount(String account) {
-        this.account = account;
-    }
 
     public String getPwd() {
         return pwd;
@@ -163,16 +152,15 @@ public class User {
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", tel=" + tel +
-                ", birthdate=" + birthdate +
+                ", birthday=" + birthday +
                 ", gender=" + gender +
-                ", idCardNumbers='" + idCardNumbers + '\'' +
-                ", weChatName='" + weChatName + '\'' +
+                ", idcardnumbers='" + idcardnumbers + '\'' +
+                ", wechatname='" + wechatname + '\'' +
                 ", homeAddr='" + homeAddr + '\'' +
-                ", medicareNumbers='" + medicareNumbers + '\'' +
-                ", visitingHospital='" + visitingHospital + '\'' +
-                ", isSmoking=" + isSmoking +
+                ", medicarenumbers='" + medicarenumbers + '\'' +
+                ", visitinghospital='" + visitinghospital + '\'' +
+                ", issmoking=" + issmoking +
                 ", smokingYear=" + smokingYear +
-                ", remark='" + remark + '\'' +
                 '}';
     }
 }

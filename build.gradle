@@ -46,4 +46,7 @@ dependencies {
     //添加swagger2依赖
     compile("io.springfox:springfox-swagger2:2.2.2")
     compile("io.springfox:springfox-swagger-ui:2.2.2")
+    
+    //添加Flyway,用于数据库版本控制
+    compile("org.flywaydb:flyway-core")
 }
