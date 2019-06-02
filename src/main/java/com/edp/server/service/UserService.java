@@ -33,4 +33,8 @@ public class UserService {
     public EdpUseRecord recordEdpUse(EdpUseRecord record){
         return edpUseRecordRepository.save(record);
     }
+
+    public User updateUser(User user){
+        return userRepository.saveAndFlush(user);
+    }
 }

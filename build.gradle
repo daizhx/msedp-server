@@ -39,8 +39,9 @@ dependencies {
     compile('org.springframework:spring-jdbc')
     compile('mysql:mysql-connector-java:5.1.47')
 
-    //添加热部署功能
+    
     compile("org.springframework:springloaded")
+    //添加spring boot的开发者工具
     compile("org.springframework.boot:spring-boot-devtools")
 
     //添加swagger2依赖

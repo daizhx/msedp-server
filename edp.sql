@@ -26,5 +26,5 @@ CREATE TABLE IF NOT EXISTS edp_use_record(
 	user_id int COMMENT '用户id',
 	dev_uuid varchar(64) DEFAULT NULL COMMENT '设备id',
 	PRIMARY KEY (id),
--- 	FOREIGN KEY (user_id) REFERENCES edp_user (id)
+	FOREIGN KEY (user_id) REFERENCES edp_user (id)
 )

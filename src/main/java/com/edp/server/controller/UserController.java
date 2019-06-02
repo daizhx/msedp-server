@@ -16,10 +16,18 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //新增用户
     @PostMapping()
     public User saveUser(@RequestBody User user){
         return userService.signUp(user);
     }
+
+    //修改用户
+    @PutMapping()
+    public User updateUser(@RequestBody User user){
+        return userService.updateUser(user);
+    }
+
 
     //TODO 简单接口
     @GetMapping("/user/sign_in")
