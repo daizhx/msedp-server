@@ -4,6 +4,7 @@ import com.edp.server.Repository.data.EdpUseRecord;
 import com.edp.server.Repository.data.User;
 import com.edp.server.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -29,10 +30,12 @@ public class UserController {
     }
 
 
-    //TODO 简单接口
-    @GetMapping("/user/sign_in")
-    public boolean login(String userName,String pwd){
-        User u = userService.signIn(userName,pwd);
+    //@RequestParam 只能获取content-type为form-data,x-www.form-urlencoded POST的参数
+    //通过json POST的参数只能通过@RequestBody 接收到java bean中
+    @PostMapping("/login")
+    public boolean login(@RequestBody User user){
+        System.out.println(user.toString());
+        User u = userService.signIn(user.getUserName(),user.getPwd());
         if(u != null){
             return true;
         }else {
@@ -40,8 +43,8 @@ public class UserController {
         }
     }
 
-    //TODO 用户使用EDP记录
-    @PostMapping("/user/use_record")
+    //用户使用EDP记录
+    @PostMapping("/edp_record")
     public boolean RecordEdpUsing(EdpUseRecord record){
         userService.recordEdpUse(record);
         return true;
