@@ -21,9 +21,8 @@ public class UserControllerTest {
 
     @Test
     public void saveUser() {
-        User u = new User();
-        u.setPwd("12312fkldkfl");
-
+//        User u = new User();
+//        u.setPwd("12312fkldkfl");
     }
 
     @Test
