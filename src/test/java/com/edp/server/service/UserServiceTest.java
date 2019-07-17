@@ -17,9 +17,6 @@ public class UserServiceTest {
 
     @Test
     public void signUp() {
-//        User user = new User();
-//        user.setTel(18664701713L);
-//        user.setWechatname("test");
-//        userService.signUp(user);
+
     }
 }
