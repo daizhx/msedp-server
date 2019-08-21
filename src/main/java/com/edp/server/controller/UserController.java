@@ -31,16 +31,16 @@ public class UserController {
 
     //@RequestParam 只能获取content-type为form-data,x-www.form-urlencoded POST的参数
     //通过json POST的参数只能通过@RequestBody 接收到java bean中
-    @PostMapping("/login")
-    public boolean login(@RequestBody User user){
-        System.out.println(user.toString());
-        User u = userService.signIn(user.getUserName(),user.getPwd());
-        if(u != null){
-            return true;
-        }else {
-            return false;
-        }
-    }
+//    @PostMapping("/login")
+//    public boolean login(@RequestBody User user){
+//        System.out.println(user.toString());
+//        User u = userService.signIn(user.getUserName(),user.getPwd());
+//        if(u != null){
+//            return true;
+//        }else {
+//            return false;
+//        }
+//    }
 
     //用户使用EDP记录
     @PostMapping("/edp_record")

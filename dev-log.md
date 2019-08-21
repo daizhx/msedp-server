@@ -7,4 +7,11 @@
 事情，因此使用程序自动生成JavaBean是一个非常明智的选择。
 
 ###2019/8/21
-发现使用compile("org.flywaydb:flyway-core") 库来做数据库版本自动升级在mysql8上运行不了。
+####工作总结
+1,发现使用compile("org.flywaydb:flyway-core") 库来做数据库版本自动升级在mysql8上运行不了。
+2,使用JPA，java bean中的属性名称使用下划线形式或驼峰形式都能跟数据库表中的下划线形式字段映射起来。
+3,使用JPA，定义Java bean与数据库表之间的映射时，除了必须在java bean类名称前添加@Entity注解外，
+还必须在属性中添加@Id注解。
+
+####问题
+空值null在mysql是否占空间，如果占空间的话占多少个字节?

@@ -25,9 +25,9 @@ public class UserService {
     }
 
     //用户登录
-    public User signIn(String userName,String pwd){
-        return userRepository.findByUserNameAndPwd(userName,pwd);
-    }
+//    public User signIn(String userName,String pwd){
+//        return userRepository.findByUserNameAndPwd(userName,pwd);
+//    }
 
     //用户使用记录
     public EdpUseRecord recordEdpUse(EdpUseRecord record){

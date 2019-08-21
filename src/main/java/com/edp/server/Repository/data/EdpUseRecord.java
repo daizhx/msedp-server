@@ -5,122 +5,61 @@ import java.util.Date;
 
 @Entity
 public class EdpUseRecord {
-
-
-    /**
-     * 自增主键
-     */
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    /**
-     * 频率
-     */
-    private Integer freq;
-    /**
-     * 时间
-     */
-    private Integer duration;
-    /**
-     * 起搏次数
-     */
-    private Integer timesPerMin;
-    /**
-     * 强度
-     */
-    private Integer strength;
-    /**
-     * 每次启动治疗时间
-     */
-    private Date startTime;
-    /**
-     * 用户id
-     */
-    @Column(name = "user_id")
-    private Integer userId;
-    /**
-     * 设备id
-     */
-    @Column(name = "dev_uuid")
-    private String devUuid;
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
+    private int id;
+    private byte freq;
+    private byte duration;
+    private byte times_per_min;
+    private byte strength;
+    private Date start_time;
+    private int user_id;
+    private String dev_uuid;
+    public void setId(int id){
         this.id = id;
     }
-
-    public Integer getFreq() {
-        return freq;
+    public int getId(){
+        return id;
     }
-
-    public void setFreq(Integer freq) {
+    public void setFreq(byte freq){
         this.freq = freq;
     }
-
-    public Integer getDuration() {
-        return duration;
+    public byte getFreq(){
+        return freq;
     }
-
-    public void setDuration(Integer duration) {
+    public void setDuration(byte duration){
         this.duration = duration;
     }
-
-    public Integer getTimesPerMin() {
-        return timesPerMin;
+    public byte getDuration(){
+        return duration;
     }
-
-    public void setTimesPerMin(Integer timesPerMin) {
-        this.timesPerMin = timesPerMin;
+    public void setTimes_per_min(byte times_per_min){
+        this.times_per_min = times_per_min;
     }
-
-    public Integer getStrength() {
-        return strength;
+    public byte getTimes_per_min(){
+        return times_per_min;
     }
-
-    public void setStrength(Integer strength) {
+    public void setStrength(byte strength){
         this.strength = strength;
     }
-
-    public Date getStartTime() {
-        return startTime;
+    public byte getStrength(){
+        return strength;
     }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setStart_time(Date start_time){
+        this.start_time = start_time;
     }
-
-    public Integer getUserId() {
-        return userId;
+    public Date getStart_time(){
+        return start_time;
     }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser_id(int user_id){
+        this.user_id = user_id;
     }
-
-    public String getDevUuid() {
-        return devUuid;
+    public int getUser_id(){
+        return user_id;
     }
-
-    public void setDevUuid(String devUuid) {
-        this.devUuid = devUuid;
+    public void setDev_uuid(String dev_uuid){
+        this.dev_uuid = dev_uuid;
     }
-
-
-    @Override
-    public String toString() {
-        return "EdpUseRecord{" +
-                "id=" + id +
-                ", freq=" + freq +
-                ", duration=" + duration +
-                ", timesPerMin=" + timesPerMin +
-                ", strength=" + strength +
-                ", startTime=" + startTime +
-                ", userId=" + userId +
-                ", devUuid=" + devUuid +
-                "}";
+    public String getDev_uuid(){
+        return dev_uuid;
     }
 }
