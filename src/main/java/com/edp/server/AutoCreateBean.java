@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 根据数据库表结构 自动生成java Bean
@@ -21,7 +23,7 @@ public class AutoCreateBean {
     private static final String USER = "root";
 
     //  数据库登录密码
-    private static final String PASSWORD = "123456";
+    private static final String PASSWORD = "1";
 
     // 数据库连接地址
     private static final String URL = "jdbc:mysql://localhost:3306/edp?useSSL=false";
@@ -63,6 +65,11 @@ public class AutoCreateBean {
         while (rs.next()) {
 //            System.out.println("|表" + (i++) + ":" + rs.getString("TABLE_NAME"));
             String tableName = rs.getString("TABLE_NAME");
+            //过滤
+            if("schema_version".equalsIgnoreCase(tableName)){
+                continue;
+            }
+
             list.add(tableName);
         }
         rs = null;
@@ -140,12 +147,13 @@ public class AutoCreateBean {
      *            类内容 包括属性 getset 方法
      */
     public void markerBean(String className, String content, String packageName) {
-        String folder = System.getProperty("user.dir") + "/src/" + packageName + "/";
+        String folder = System.getProperty("user.dir") + "/src/main/java/" + packageName + "/";
 
         File file = new File(folder);
         if (!file.exists()) {
             file.mkdirs();
         }
+
         String fileName = folder + className + ".java";
 
         try {
@@ -244,13 +252,58 @@ public class AutoCreateBean {
         return null;
     }
 
-    public static void main(String[] args) throws Exception {
-        AutoCreateBean auto = new AutoCreateBean();
-        List<String> list = auto.TBlist();
-        for(String s : list){
-            System.out.println("--->" + s);
+
+    //下划线转驼峰
+    public static StringBuffer underLine2Camel(StringBuffer str) {
+        //利用正则删除下划线，把下划线后一位改成大写
+        Pattern pattern = Pattern.compile("_(\\w)");
+        Matcher matcher = pattern.matcher(str);
+        StringBuffer sb = new StringBuffer(str);
+
+        if (matcher.find()) {
+            sb = new StringBuffer();
+            //将当前匹配子串替换为指定字符串，并且将替换后的子串以及其之前到上次匹配子串之后的字符串段添加到一个StringBuffer对象里。
+            //正则之前的字符和被替换的字符
+            matcher.appendReplacement(sb, matcher.group(1).toUpperCase());
+            //把之后的也添加到StringBuffer对象里
+            matcher.appendTail(sb);
+        } else {
+            return sb;
         }
-        auto.GenEntity(list, "com/edp/server/entity");
+        return underLine2Camel(sb);
+    }
+
+
+    /**
+     * 驼峰转下划线
+     * @param str
+     * @return
+     */
+    public static StringBuffer underline(StringBuffer str) {
+        Pattern pattern = Pattern.compile("[A-Z]");
+        Matcher matcher = pattern.matcher(str);
+        StringBuffer sb = new StringBuffer(str);
+        if (matcher.find()) {
+            sb = new StringBuffer();
+            //将当前匹配子串替换为指定字符串，并且将替换后的子串以及其之前到上次匹配子串之后的字符串段添加到一个StringBuffer对象里。
+            //正则之前的字符和被替换的字符
+            matcher.appendReplacement(sb, "_" + matcher.group(0).toLowerCase());
+            //把之后的也添加到StringBuffer对象里
+            matcher.appendTail(sb);
+        } else {
+            return sb;
+        }
+        return underline(sb);
+    }
+
+    public static void main(String[] args) throws Exception {
+        System.out.println(underLine2Camel(new StringBuffer("abc_")));
+//        AutoCreateBean auto = new AutoCreateBean();
+//        List<String> list = auto.TBlist();
+//        for(String s : list){
+//            System.out.println("table--->" + s);
+//        }
+//        auto.GenEntity(list, "com/edp/server/entity");
 
     }
 
