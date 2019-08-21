@@ -1,7 +1,6 @@
 package com.edp.server.service;
 
 import com.edp.server.Application;
-import com.edp.server.Repository.data.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
